@@ -1,0 +1,53 @@
+[
+    {
+      "id": 1,
+      "service": "SERPRO",
+      "status": "up"
+    },
+    {
+      "id": 2,
+      "service": "Conselho Nacional de Justiça",
+      "status": "warning"
+    },
+    {
+      "id": 3,
+      "service": "Tribunal de Justiça",
+      "status": "error"
+    },
+    {
+        "id": 4,
+        "service": "Ministério da Saúde",
+        "status": "up"
+      },
+      {
+        "id": 5,
+        "service": "Receita Federal",
+        "status": "down"
+      },
+      {
+        "id": 6,
+        "service": "Departamento de Trânsito",
+        "status": "warning"
+      },
+      {
+        "id": 7,
+        "service": "Banco Central",
+        "status": "up"
+      },
+      {
+        "id": 8,
+        "service": "Ministério da Educação",
+        "status": "error"
+      },
+      {
+        "id": 9,
+        "service": "Agência Nacional de Energia Elétrica",
+        "status": "up"
+      },
+      {
+        "id": 10,
+        "service": "Instituto Nacional do Seguro Social",
+        "status": "down"
+      }
+]
+    
