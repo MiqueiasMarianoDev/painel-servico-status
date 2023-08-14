@@ -32,13 +32,13 @@ export const Table = ({_columns, _data}) => {
             ))}
             </thead>
             <tbody {...getTableBodyProps()}>
-                {rows && rows.map(row => {
+                {rows.length > 0 && rows.map(row => {
                     prepareRow(row)
                     return (
                         <tr {...row.getRowProps()}>
                             {row.cells.map(cell => {
                                 if (cell.column.id === "status") {
-                                  return <td {...cell.getCellProps()}><Status status={cell.render('Cell')} /></td>
+                                  return <td {...cell.getCellProps()}><Status _status={cell.render('Cell')} /></td>
                                 }
                                 return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
                             })}

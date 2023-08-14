@@ -1,0 +1,18 @@
+.hjistatus {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+.green {
+    color: green;
+  }
+.red {
+    background: grey;
+    color: #fff;
+  }
+.red {
+    background: #f44336;
+    color: #fff;
+  }
