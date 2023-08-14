@@ -1,19 +1,17 @@
 import React, { useMemo } from 'react'
 import { useTable } from 'react-table/dist/react-table.development'
-import MOCK_DATA from '../MOCK_DATA.json'
-import { COLUMNS } from '../columns'
 import './Table.module.css'
+import { Status } from '../status/Status';
 
 
-export const Table = () => {
-  const columns = useMemo(() => COLUMNS, []);
-  const data = useMemo(() => MOCK_DATA, []);
+export const Table = ({_columns, _data}) => {
+  const columns = useMemo(() => _columns, [_columns]);
+  const data = useMemo(() => _data, [_data]);
 
   const {
     getTableProps,
     getTableBodyProps,
     headerGroups,
-    footerGroups,
     rows,
     prepareRow
   } = useTable({
@@ -34,26 +32,21 @@ export const Table = () => {
             ))}
             </thead>
             <tbody {...getTableBodyProps()}>
-                {rows.map(row => {
+                {rows && rows.map(row => {
                     prepareRow(row)
                     return (
                         <tr {...row.getRowProps()}>
                             {row.cells.map(cell => {
+                                if (cell.column.id === "status") {
+                                  return <td {...cell.getCellProps()}><Status status={cell.render('Cell')} /></td>
+                                }
                                 return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
                             })}
                         </tr>
                     )
-                })}
+                })
+                }
             </tbody>
-            <tfoot>
-                {footerGroups.map(footerGroup => (
-                    <tr {...footerGroup.getFooterGroupProps()}>
-                    {footerGroup.headers.map(column => (
-                        <td {...column.getFooterProps()}>{column.render('Footer')}</td>
-                    ))}
-                    </tr>
-                ))}
-            </tfoot>
         </table>
     </>
   )

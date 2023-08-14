@@ -17,12 +17,12 @@
     {
         "id": 4,
         "service": "Ministério da Saúde",
-        "status": "up"
+        "status": "warning"
       },
       {
         "id": 5,
         "service": "Receita Federal",
-        "status": "down"
+        "status": "up"
       },
       {
         "id": 6,
@@ -47,7 +47,7 @@
       {
         "id": 10,
         "service": "Instituto Nacional do Seguro Social",
-        "status": "down"
+        "status": "warning"
       }
 ]
     
