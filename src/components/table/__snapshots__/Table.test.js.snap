@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table snapshot 1`] = `
+<DocumentFragment>
+  <table
+    role="table"
+  >
+    <thead>
+      <tr
+        role="row"
+      >
+        <th
+          colspan="1"
+          role="columnheader"
+        >
+          Coluna 1
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      role="rowgroup"
+    >
+      <tr
+        role="row"
+      >
+        <td
+          role="cell"
+        >
+          Valor 1
+        </td>
+      </tr>
+      <tr
+        role="row"
+      >
+        <td
+          role="cell"
+        >
+          Valor 2
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</DocumentFragment>
+`;

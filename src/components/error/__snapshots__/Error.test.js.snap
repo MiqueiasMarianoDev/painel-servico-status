@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Error snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="erro"
+  >
+    <p>
+      Oops, ocorreu um erro:
+    </p>
+    <p />
+  </div>
+</DocumentFragment>
+`;
