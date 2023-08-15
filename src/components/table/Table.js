@@ -2,9 +2,11 @@ import React, { useMemo } from 'react'
 import { useTable } from 'react-table/dist/react-table.development'
 import './Table.module.css'
 import { Status } from '../status/Status';
+import { Loading } from '../loading/Loading';
+import { Error } from '../error/Error';
 
 
-export const Table = ({_columns, _data}) => {
+export const Table = ({_columns, _data, loading, error}) => {
   const columns = useMemo(() => _columns, [_columns]);
   const data = useMemo(() => _data, [_data]);
 
@@ -32,7 +34,7 @@ export const Table = ({_columns, _data}) => {
             ))}
             </thead>
             <tbody {...getTableBodyProps()}>
-                {rows.length > 0 && rows.map(row => {
+                {rows && rows.map(row => {
                     prepareRow(row)
                     return (
                         <tr {...row.getRowProps()}>
@@ -46,8 +48,20 @@ export const Table = ({_columns, _data}) => {
                     )
                 })
                 }
-            </tbody>
+            </tbody>   
         </table>
+        {loading && (
+          <Loading />
+        )}
+        {error &&
+          <Error />
+        }
+
+
     </>
   )
+}
+Table.defaultProps = {
+  loading: false,
+  error: false
 }

@@ -10,7 +10,9 @@ export const Painel = () => {
       <h3>Painel com Dados</h3>
       <Table _columns={COLUMNS} _data={MOCK_DATA} />
       <h3>Painel Loading</h3>
-      <Table _columns={COLUMNS} _data={[]} />
+      <Table _columns={COLUMNS} _data={[]} loading={true}/>
+      <h3>Painel Error</h3>
+      <Table _columns={COLUMNS} _data={[]} error={true}/>
     </div>
   )
 }
