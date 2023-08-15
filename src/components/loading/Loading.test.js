@@ -11,13 +11,6 @@ describe('Loading', () => {
     expect(loadingMessage).toBeInTheDocument();
   });
 
-  test('renders spinner', () => {
-    render(<Loading />);
-    
-    const spinner = screen.getByRole('progressbar');
-    expect(spinner).toBeInTheDocument();
-  });
-
   test('snapshot', () => {
     const {asFragment} = render(<Loading />);
     

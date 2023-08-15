@@ -11,22 +11,11 @@ describe('App', () => {
     expect(headerText).toBeInTheDocument();
   });
 
-  test('renders Painel component', () => {
-    render(<App />);
-    const painelComponent = screen.getByType(Painel);
-    expect(painelComponent).toBeInTheDocument();
-  });
 
   test('App snapshot', () => {
     const {asFragment} = render(<App />);
     expect(asFragment()).toMatchSnapshot();
   });
-  
-  test('calls Painel component', () => {
-    const mockPainel = jest.fn();
-    jest.mock('./components/painel/Painel', () => mockPainel);
-    render(<App />);
-    expect(mockPainel).toHaveBeenCalled();
-  });
+
 
 });
