@@ -1,43 +1,41 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { Painel } from './Painel';
-import { Table } from '../table/Table';
 
 describe('Painel', () => {
-
-  test('renders Table component', () => {
+  it('renders correctly', () => {
     render(<Painel />);
-    const table = screen.getByType(Table);
-    expect(table).toBeInTheDocument();
-  }); 
-
-  test('renders 3 Table components', () => {
-    render(<Painel />);
-    const tables = screen.getAllByType(Table);
-    expect(tables.length).toBe(3);
+    
+    expect(screen.getByText('Painel')).toBeInTheDocument();
+    expect(screen.getByText('Teste:')).toBeInTheDocument();
   });
 
-  test('first Table has data', () => {
+  it('displays table when environment is selected', async () => {
     render(<Painel />);
-    const firstTable = screen.getAllByType(Table)[0];
-    expect(firstTable).toHaveTextContent('Painel com Dados');
+    
+    const select = screen.queryByText('Ambiente');
+    await userEvent.selectOptions(select, 'OK');
+    
+    expect(screen.getByText('Painel com Dados')).toBeInTheDocument();
+    expect(screen.getByRole('table')).toBeInTheDocument();
   });
 
-  test('second Table loading=true', () => {
+  it('displays loading indicator when Loading is selected', async () => {
     render(<Painel />);
-    const secondTable = screen.getAllByType(Table)[1];
-    expect(secondTable.props.loading).toBeTruthy();
-  });  
-
-  test('third Table error=true', () => {
-    render(<Painel />);
-    const thirdTable = screen.getAllByType(Table)[2];
-    expect(thirdTable.props.error).toBeTruthy();
+    
+    const select = screen.getByLabelText('Ambiente');
+    await userEvent.selectOptions(select, 'Loading');
+    
+    expect(screen.getByText('Loading...')).toBeInTheDocument();
   });
 
-  test('snapshot', () => {
-    const {asFragment} = render(<Painel />);
-    expect(asFragment()).toMatchSnapshot();
+  it('displays error message when Error is selected', async () => {
+    render(<Painel />);
+    
+    const select = screen.getByLabelText('Ambiente');
+    await userEvent.selectOptions(select, 'Error');
+    
+    expect(screen.getByText('Ocorreu um erro')).toBeInTheDocument();
   });
-
 });
